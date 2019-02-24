@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.esy.com.tr/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.esy.com.tr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">http://www.esy.com.tr</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.esy.com.tr/">
+      <s:element name="AktifTestler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Kadi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ksifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AktifTestlerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AktifTestlerResult" type="tns:ArrayOfAktifTest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAktifTest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AktifTest" type="tns:AktifTest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AktifTest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TestGrupAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ButceKodu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KisaAd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestOrnekTipi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hata" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestEkle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Kadi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ksifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BARKOD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TCKIMLIK" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ADI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SOYADI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CINSIYET" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DTARIH" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ONTANI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Test" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestEkleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestEkleResult" type="tns:ArrayOfTestEkleSonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTestEkleSonuc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestEkleSonuc" type="tns:TestEkleSonuc" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TestEkleSonuc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sonuc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Barkod" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestGuncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BARKOD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Kadi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ksifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Test" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestGuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestGuncelleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BarkodSonucBilgisi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BARKOD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Kadi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ksifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BarkodSonucBilgisiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarkodSonucBilgisiResult" type="tns:ArrayOfHastaSonucBilgisi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHastaSonucBilgisi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HastaSonucBilgisi" type="tns:HastaSonucBilgisi" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HastaSonucBilgisi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Barkod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCKimlikNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdiSoyadi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BabaAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DogumTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cinsiyet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KlinikAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BirimAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KayitTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="istemTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aciklama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AileHekimiAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrnekAlmaTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hata" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestSonuclari" type="tns:ArrayOfSonucBilgi" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSonucBilgi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SonucBilgi" type="tns:SonucBilgi" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SonucBilgi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TestGrupAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestParametreAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrnekTipi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sonuc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SonucBirim" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SonucReferans" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SonucDurum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SonucOnayTarihi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SonucYorum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SonucAciklama" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TCSonucBilgisi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Kadi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ksifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TCKIMLIK" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TCSonucBilgisiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TCSonucBilgisiResult" type="tns:ArrayOfHastaSonucToplu" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHastaSonucToplu">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HastaSonucToplu" type="tns:HastaSonucToplu" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HastaSonucToplu">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TestSonuclariGenel" type="tns:ArrayOfHastaSonucBilgisi" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hata" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BarkodSil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Kadi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ksifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="barkod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BarkodSilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarkodSilResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DuyurulariGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Kadi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ksifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DuyurulariGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DuyurulariGetirResult" type="tns:ArrayOfDuyurular" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDuyurular">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Duyurular" type="tns:Duyurular" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Duyurular">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DuyuruID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Baslik" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icerik" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hata" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AktifTestlerSoapIn">
+    <wsdl:part name="parameters" element="tns:AktifTestler" />
+  </wsdl:message>
+  <wsdl:message name="AktifTestlerSoapOut">
+    <wsdl:part name="parameters" element="tns:AktifTestlerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestEkleSoapIn">
+    <wsdl:part name="parameters" element="tns:TestEkle" />
+  </wsdl:message>
+  <wsdl:message name="TestEkleSoapOut">
+    <wsdl:part name="parameters" element="tns:TestEkleResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestGuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:TestGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="TestGuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:TestGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="BarkodSonucBilgisiSoapIn">
+    <wsdl:part name="parameters" element="tns:BarkodSonucBilgisi" />
+  </wsdl:message>
+  <wsdl:message name="BarkodSonucBilgisiSoapOut">
+    <wsdl:part name="parameters" element="tns:BarkodSonucBilgisiResponse" />
+  </wsdl:message>
+  <wsdl:message name="TCSonucBilgisiSoapIn">
+    <wsdl:part name="parameters" element="tns:TCSonucBilgisi" />
+  </wsdl:message>
+  <wsdl:message name="TCSonucBilgisiSoapOut">
+    <wsdl:part name="parameters" element="tns:TCSonucBilgisiResponse" />
+  </wsdl:message>
+  <wsdl:message name="BarkodSilSoapIn">
+    <wsdl:part name="parameters" element="tns:BarkodSil" />
+  </wsdl:message>
+  <wsdl:message name="BarkodSilSoapOut">
+    <wsdl:part name="parameters" element="tns:BarkodSilResponse" />
+  </wsdl:message>
+  <wsdl:message name="DuyurulariGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:DuyurulariGetir" />
+  </wsdl:message>
+  <wsdl:message name="DuyurulariGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:DuyurulariGetirResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EntegreLBYSLabServiceSoap">
+    <wsdl:operation name="AktifTestler">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Çalışılan aktif testleri getirir, TestEkle servisinde kullanılacak olan TestID bilgisini içerir.</wsdl:documentation>
+      <wsdl:input message="tns:AktifTestlerSoapIn" />
+      <wsdl:output message="tns:AktifTestlerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestEkle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Hasta bilgileri ile birlikte test ekler</wsdl:documentation>
+      <wsdl:input message="tns:TestEkleSoapIn" />
+      <wsdl:output message="tns:TestEkleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestGuncelle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gönderilmiş bir barkod için test güncelleme işlemini yapar. Önceki tüm testleri siler ve gönderilen paketteki testleri ekler.</wsdl:documentation>
+      <wsdl:input message="tns:TestGuncelleSoapIn" />
+      <wsdl:output message="tns:TestGuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BarkodSonucBilgisi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Barkod'a ait sonuç bilgilerini verir</wsdl:documentation>
+      <wsdl:input message="tns:BarkodSonucBilgisiSoapIn" />
+      <wsdl:output message="tns:BarkodSonucBilgisiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TCSonucBilgisi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Girilen T.C. Kimlik Numarasına ait tüm sonuç bilgilerini verir.</wsdl:documentation>
+      <wsdl:input message="tns:TCSonucBilgisiSoapIn" />
+      <wsdl:output message="tns:TCSonucBilgisiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BarkodSil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Barkod numunesi işleme alınmamış ise tüm istemleri siler.</wsdl:documentation>
+      <wsdl:input message="tns:BarkodSilSoapIn" />
+      <wsdl:output message="tns:BarkodSilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DuyurulariGetir">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Laboratuvar tarafından yayınlanan duyuruları verir</wsdl:documentation>
+      <wsdl:input message="tns:DuyurulariGetirSoapIn" />
+      <wsdl:output message="tns:DuyurulariGetirSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EntegreLBYSLabServiceSoap" type="tns:EntegreLBYSLabServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AktifTestler">
+      <soap:operation soapAction="http://www.esy.com.tr/AktifTestler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestEkle">
+      <soap:operation soapAction="http://www.esy.com.tr/TestEkle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestGuncelle">
+      <soap:operation soapAction="http://www.esy.com.tr/TestGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarkodSonucBilgisi">
+      <soap:operation soapAction="http://www.esy.com.tr/BarkodSonucBilgisi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TCSonucBilgisi">
+      <soap:operation soapAction="http://www.esy.com.tr/TCSonucBilgisi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarkodSil">
+      <soap:operation soapAction="http://www.esy.com.tr/BarkodSil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuyurulariGetir">
+      <soap:operation soapAction="http://www.esy.com.tr/DuyurulariGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EntegreLBYSLabServiceSoap12" type="tns:EntegreLBYSLabServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AktifTestler">
+      <soap12:operation soapAction="http://www.esy.com.tr/AktifTestler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestEkle">
+      <soap12:operation soapAction="http://www.esy.com.tr/TestEkle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestGuncelle">
+      <soap12:operation soapAction="http://www.esy.com.tr/TestGuncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarkodSonucBilgisi">
+      <soap12:operation soapAction="http://www.esy.com.tr/BarkodSonucBilgisi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TCSonucBilgisi">
+      <soap12:operation soapAction="http://www.esy.com.tr/TCSonucBilgisi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarkodSil">
+      <soap12:operation soapAction="http://www.esy.com.tr/BarkodSil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DuyurulariGetir">
+      <soap12:operation soapAction="http://www.esy.com.tr/DuyurulariGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EntegreLBYSLabService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">http://www.esy.com.tr</wsdl:documentation>
+    <wsdl:port name="EntegreLBYSLabServiceSoap" binding="tns:EntegreLBYSLabServiceSoap">
+      <soap:address location="http://01hsl.com/LABservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EntegreLBYSLabServiceSoap12" binding="tns:EntegreLBYSLabServiceSoap12">
+      <soap12:address location="http://01hsl.com/LABservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
